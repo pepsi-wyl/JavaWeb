@@ -1,0 +1,113 @@
+# javaweb_T
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ajax</title>
+
+  <script src="https://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+    //原生AJAX
+    function ajaxRequest() {
+      //创建XMLHttpRequest对象
+      let xmlHttpRequest = new XMLHttpRequest();
+      //调用open方法 true表示异步
+      xmlHttpRequest.open("GET", "http://localhost:8080/json_ajax/ajaxServlet?method=JavaScriptAjax", true);   //get post    URL“http://localhost:8080/......”    true为异步  false为同步
+      xmlHttpRequest.onreadystatechange = function () {
+        if (xmlHttpRequest.status == 200 && xmlHttpRequest.readyState == 4) {     //判断状态码
+          let person = JSON.parse(xmlHttpRequest.responseText);               //从后端获取数据
+          $("ul").append($("<li></li>").html("id:" + person.id + " name:" +
+            "" + person.name));
+        }
+      }
+      //调用send方法发送请求
+      xmlHttpRequest.send();
+    }
+
+
+    //jQueryAJAX
+    /**
+     类型 url 参数  回调 返回值类型
+     */
+    $(document).ready(function () {
+
+      //ajax
+      $("#ajaxBtn").click(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/json_ajax/ajaxServlet",
+            data: {method: "jQueryAjax"},
+            success: function (date) {
+              $("ul").append($("<li></li>").html("id: " + date.id + "   " + "name: " + date.name));
+            },
+            error: function (date) {
+
+            },
+            dataType: "json"
+          }
+        );
+      });
+
+      //get
+      $("#getBtn").click(function () {
+        $.get("http://localhost:8080/json_ajax/ajaxServlet", {method: "getAjax"}, function (date) {
+          $("ul").append($("<li></li>").html("id: " + date.id + "   " + "name: " + date.name));
+        }, "json");
+      });
+
+      //post
+      $("#postBtn").click(function () {
+        $.post("http://localhost:8080/json_ajax/ajaxServlet", {method: "postAjax"}, function (date) {
+          $("ul").append($("<li></li>").html("id: " + date.id + "   " + "name: " + date.name));
+        }, "json");
+      });
+
+      //getJSON
+      $("#getJSONBtn").on("click", function () {
+        $.getJSON("http://localhost:8080/json_ajax/ajaxServlet", {method: "getJsonAjax"}, function (date) {
+          $("ul").append($("<li></li>").html("id: " + date.id + "   " + "name: " + date.name));
+        });
+      });
+
+      //serialize
+      $("#submit").on("click", function () {
+        $.getJSON("http://localhost:8080/json_ajax/ajaxServlet?" + $("#form").serialize(), {method: "serializeAjax"}, function (date) {
+        });
+      });
+
+
+    });
+
+  </script>
+
+
+</head>
+
+
+<body>
+
+
+<div class="btn">
+  <button onclick="ajaxRequest();">javaScriptAjax</button>
+  <button id="ajaxBtn">jQueryAjax请求</button>
+  <button id="getBtn">jQueryGet请求</button>
+  <button id="postBtn">jQueryPost请求</button>
+  <button id="getJSONBtn">jQueryGetJSON请求</button>
+</div>
+
+<form id="form">
+  用户名：<input name="username" type="text"/><br/>
+  密码：<input name="password" type="password"/><br/>
+  <button id="submit">提交</button>
+</form>
+
+<ul>
+
+</ul>
+
+</body>
+</html>
