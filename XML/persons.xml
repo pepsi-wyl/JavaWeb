@@ -1,0 +1,12 @@
+# javaweb_T
+
+<?xml version="1.0" encoding="utf-8" ?>
+
+<persons>
+  <person id="1">
+    <name>wyl</name>
+  </person>
+  <person id="2">
+    <name>bsy</name>
+  </person>
+</persons>
