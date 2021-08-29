@@ -20,7 +20,7 @@ import java.io.IOException;
  *   自定义类->HttpServlet->GenericServlet->Servlet
  *   Servlet接口 负责定义Servlet程序的访问规范
  *   GenericServlet类 实现了Servlet接口 做了很多空实现 并持有一个ServletConfig类的引用并对ServletConfig的使用做一些方法
- *   HttpServlet抽取了Service()方法 并实现了请求的分发 doGet/doPost 负责跑抛异常
+ *   HttpServlet抽取了Service()方法 并实现了请求的分发   doGet/doPost方法负责抛异常
  *   自定义类 重写doGet/doPost方法，实现业务逻辑
 
  */
