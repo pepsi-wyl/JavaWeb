@@ -11,7 +11,7 @@ import javax.servlet.ServletContextListener;
  *
  * web.xml下配置
  * <listener>
- *     <listener-class>listener</listener-class>
+ *     <listener-class>ServletContextListener</listener-class>
  * </listener>
  */
 
