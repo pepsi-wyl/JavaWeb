@@ -35,6 +35,13 @@
 格式:  <jsp:forward page=""></jsp:forward>
 --%>
 <jsp:forward page="../T_1.jsp"></jsp:forward>
+    
+<%
+    //1.前端
+    //pageContext.forward("../T_1.jsp");
+    //2.后端
+    //request.getRequestDispatcher("../T_1.jsp").forward(request, response);
+%>
 
 </body>
 </html>
