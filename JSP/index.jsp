@@ -133,3 +133,15 @@ extends=""              //当前jsp页面翻译出来继承谁
 
 </body>
 </html>
+
+
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>500</title>
+</head>
+<body>
+500错误
+</body>
+</html>
