@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>up</title>
+</head>
+<style>
+    .file {
+        position: relative;
+        display: inline-block;
+        background: #D0EEFF;
+        border: 1px solid #99D3F5;
+        border-radius: 4px;
+        padding: 4px 12px;
+        overflow: hidden;
+        color: #1E88C7;
+        text-decoration: none;
+        text-indent: 0;
+        line-height: 20px;
+    }
+    .file input {
+        position: absolute;
+        font-size: 100px;
+        right: 0;
+        top: 0;
+        opacity: 0;
+    }
+    .file:hover {
+        background: #AADFFD;
+        border-color: #78C3F3;
+        color: #004974;
+        text-decoration: none;
+    }
+</style>
+<body>
+<!--
+form标签  method=post(get提交数据长度有限)  encType=multipart/form-data
+使用input type=file 添加上传的文件
+-->
+<form action="http://192.168.1.6/downUp/up" method="post" enctype="multipart/form-data">
+    username:<input type="text" name="username"> <br/><br/>
+    <input type="file" name="file" class="file"> <br/><br/>
+    <input type="submit" value="提交" class="file" ><br/><br/>
+</form>
+</body>
+</html>
+
+
+
+
