@@ -16,11 +16,9 @@ public class loginServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         if ("zhazha".equals(username) && "888888".equals(password)) {
-            req.setAttribute("massage", "登陆成功");
             System.out.println("登录 成功");
             CookieUtils.creatCookie("username", username, 60 * 60, resp);
         } else {
-            req.setAttribute("massage", "登陆失败");
             System.out.println("登录 失败");
         }
     }
