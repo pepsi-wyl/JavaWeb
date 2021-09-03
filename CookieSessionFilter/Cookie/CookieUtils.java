@@ -17,7 +17,7 @@ public class CookieUtils {
     /**
      * 判断字符串是否为空
      */
-    private static boolean isEmpty(String srt) {
+    public static boolean isEmpty(String srt) {
         return (srt == null || "".equals(srt));
     }
 
@@ -119,3 +119,4 @@ public class CookieUtils {
     }
 
 }
+
