@@ -1,7 +1,6 @@
 package Servlet;
 
 import utils.CookieUtils;
-import utils.StringUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,7 +27,7 @@ public class cookieServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
 
         String method = req.getParameter("method");
-        if (!StringUtil.isEmpty(method)) {
+        if (!CookieUtils.isEmpty(method)) {
             switch (method) {
                 case "creatCookie" -> this.creatCookie(req, resp);
                 case "getCookie" -> this.getCookie(req, resp);
